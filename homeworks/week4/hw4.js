@@ -7,7 +7,6 @@ request(
       'Client-ID': 'cht4rbpb659n4ystrmk3k6dwy08h66',
     },
   },
-
   (error, response, body) => {
     const json = JSON.parse(body);
     for (let i = 0; i < json.data.length; i += 1) {
