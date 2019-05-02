@@ -31,7 +31,7 @@ function whoBig(a, b) {
 }
 
 function pa(a, b) {
-  const wei = 100;// 控制要取多少位數
+  const wei = 100000;// 控制要取多少位數
   let num1 = a.split('');
   let num2 = b.split('');
   let numCut = [];
@@ -116,10 +116,10 @@ function pa(a, b) {
   return ans.join('');// 答案
 }
 
-console.log(pa('6565653', '543'));
-console.log(pa('65', '543'));
-console.log(pa('10', '1000'));
-console.log(pa('1', '1'));
-console.log(pa('999999999', '999995425'));
-console.log(pa('999999999', '329995425'));
-console.log(pa('1000', '10'));
+console.log(pa('333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333', '543'));
+// console.log(pa('65', '543'));
+// console.log(pa('10', '1000'));
+// console.log(pa('1', '1'));
+// console.log(pa('999999999', '999995425'));
+// console.log(pa('999999999', '329995425'));
+// console.log(pa('1000', '10'));
