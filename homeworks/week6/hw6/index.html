@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cocoisbad 的挑戰題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" >	
+	<style>
+
+		ol,ul,li {
+			margin:0;
+			padding:0;
+			color: #828282;
+		}
+
+		body {
+			margin:0;			
+			font-family:sans-serif;
+			letter-spacing: 0.5px;
+		}
+
+		a {
+			color:black;
+			text-decoration:none;
+		}
+
+
+		.wrapper {
+			background: #F6F6EF;
+			max-width: 80%;
+			margin:8px auto;
+
+		}
+		.icon::before {
+			content:"▲";
+			font-size: 12px;
+			color: #828282;
+		}
+
+		.icon {
+			padding: 5px 0;
+		}
+
+		.icon a {
+			color:#828282;
+		}
+
+		.nav {
+			background: #FF6600;
+			max-width: 100%;
+			padding: 2px 3px;
+			position: relative;
+		}
+
+		.nav__mid {
+			padding-left: 3px;
+			display: inline-block;
+		}
+
+		.nav__logo {
+			display:inline-block;
+			color: white;
+			border: white solid 1px;
+			padding: 1px 5px;
+			position: relative;
+		}
+
+		.nav__logo>a {
+			color: white;
+		}
+
+
+
+		.nav__title {
+			display:inline-block;
+			color: black;
+			font-weight: bold;
+		}
+
+		.nav__content {
+			display:inline-block;
+			color: black;
+		}
+
+		.nav__login {
+			display:inline-block;
+			position: absolute;
+			right:10px;
+			top:15%;
+			color: black;
+		}
+
+		.content {
+			font-size: 14px;
+			padding: 8px 25px;
+		}
+
+		.content__score {
+			padding-left: 16px;
+			color: #828282;
+		}
+		.icon>span {
+			color: black;
+			font-size: 16px;
+		}
+
+		.content__More {
+			padding: 20px 0px 2px 16px;
+			font-size: 18px;
+		}
+
+		.footer {
+			text-align:center;
+			border-top: #FF6600 solid 2px;
+		}
+
+		.footer__menu {
+			display: inline-block;
+			padding-left: 3px;
+			font-size: 14px;
+		}
+
+		.footer__content {
+			padding: 15px 0px 10px 0px;
+		}
+
+		.footer__search {
+			padding: 10px 0 20px 0;
+			font-size: 20px;
+			color :#828282;
+		}
+
+		.search {
+			padding: 5px;
+		}
+
+		@media screen and  (max-width:900px) {
+			
+			ol {
+				font-size: 16px;
+			}
+
+			.icon>span {
+				font-size: 18px;
+		}
+
+			.wrapper {
+				max-width: 100%;
+				margin:0px auto;				
+			}
+			.icon::before {
+				font-size: 16px;
+			}
+			.nav__title {
+				display:block;
+				font-size: 20px;
+			}
+			.nav__mid {
+				padding: 4px;
+				max-width: 80%;
+			}
+			.nav__logo {
+				bottom: 12px;
+			}
+			.nav__login {
+				top:30%;
+			}
+
+			.content {
+				margin-left: 10px;
+			}
+
+			.footar__title {
+				display: inline;
+			}
+			.search {
+				width: 80%;
+			}
+		}
+
+		@media screen and (max-width:492px) {
+
+			.nav__logo {
+				bottom: 20px;
+			}
+			.nav__login {
+				top:40%;
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="nav">
+			<div class="nav__logo"><a href="#">Y</a></div>
+			<ul class="nav__mid">				
+				<li class="nav__title"><a href="#">Hacker News</a></li>
+				<li class="nav__content"><a href="#">new</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">past</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">comments</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">ask</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">show</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">jobs</a></li>
+				<li class="nav__content">|</li>
+				<li class="nav__content"><a href="#">submit</a></li>
+				<li class="nav__login"><a href="#">login</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<ol >
+				<li class="icon">
+					<span>Banned from PayPal after 12 years of business</span>
+					<a href="#">(niteo.co)</a>
+					<div class="content__score">
+						<span>286 points by</span>
+						<a href="#">dz0ny</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">139 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Amazon S3 Path Deprecation Plan – The Rest of the Story</span>
+					<a href="#">(amazon.com)</a>
+					<div class="content__score">
+						<span>449 points by</span>
+						<a href="#">jeffbarr</a>
+						<a href="#">12 hours ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">105 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>For Better Computing, Liberate CPUs from Garbage Collection</span>
+					<a href="#">(ieee.org)</a>
+					<div class="content__score">
+						<span>269 points by</span>
+						<a href="#">mbroncano</a>
+						<a href="#">10 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">223 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Scanning the fintech landscape: disruptive models</span>
+					<a href="#">(mckinsey.com)</a>
+					<div class="content__score">
+						<span>1 points by</span>
+						<a href="#">zt</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">discuss</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Tech Companies Are Deleting Evidence of War Crimes</span>
+					<a href="#">(theatlantic.com)</a>
+					<div class="content__score">
+						<span>415 points by</span>
+						<a href="#">anfilt</a>
+						<a href="#">9 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">126 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>ESA Space CyberSecurity Call for Ideas</span>
+					<a href="#">(esa.int)</a>
+					<div class="content__score">
+						<span>12 points by</span>
+						<a href="#">crowcat</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">2 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Internet Explorer Browser Collection</span>
+					<a href="#">(my-internet-explorer.com)</a>
+					<div class="content__score">
+						<span>56 points by</span>
+						<a href="#">Gwxz</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">23 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Urban trees 'live fast, die young' compared to those in rural forests</span>
+					<a href="#">(phys.org)</a>
+					<div class="content__score">
+						<span>11 points by</span>
+						<a href="#">dnetesn</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">3 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>United Nations Expert Arrested in Tunisia for Using an RTL-SDR</span>
+					<a href="#">(rtl-sdr.com)</a>
+					<div class="content__score">
+						<span>219 points by</span>
+						<a href="#">newman8r</a>
+						<a href="#">12 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">112 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Inheritance versus Composition</span>
+					<a href="#">(lwn.net)</a>
+					<div class="content__score">
+						<span>209 points by</span>
+						<a href="#">chmaynard</a>
+						<a href="#">13 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">109 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Banned from PayPal after 12 years of business</span>
+					<a href="#">(niteo.co)</a>
+					<div class="content__score">
+						<span>286 points by</span>
+						<a href="#">dz0ny</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">139 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Amazon S3 Path Deprecation Plan – The Rest of the Story</span>
+					<a href="#">(amazon.com)</a>
+					<div class="content__score">
+						<span>449 points by</span>
+						<a href="#">jeffbarr</a>
+						<a href="#">12 hours ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">105 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>For Better Computing, Liberate CPUs from Garbage Collection</span>
+					<a href="#">(ieee.org)</a>
+					<div class="content__score">
+						<span>269 points by</span>
+						<a href="#">mbroncano</a>
+						<a href="#">10 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">223 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Scanning the fintech landscape: disruptive models</span>
+					<a href="#">(mckinsey.com)</a>
+					<div class="content__score">
+						<span>1 points by</span>
+						<a href="#">zt</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">discuss</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Tech Companies Are Deleting Evidence of War Crimes</span>
+					<a href="#">(theatlantic.com)</a>
+					<div class="content__score">
+						<span>415 points by</span>
+						<a href="#">anfilt</a>
+						<a href="#">9 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">126 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>ESA Space CyberSecurity Call for Ideas</span>
+					<a href="#">(esa.int)</a>
+					<div class="content__score">
+						<span>12 points by</span>
+						<a href="#">crowcat</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">2 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Internet Explorer Browser Collection</span>
+					<a href="#">(my-internet-explorer.com)</a>
+					<div class="content__score">
+						<span>56 points by</span>
+						<a href="#">Gwxz</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">23 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Urban trees 'live fast, die young' compared to those in rural forests</span>
+					<a href="#">(phys.org)</a>
+					<div class="content__score">
+						<span>11 points by</span>
+						<a href="#">dnetesn</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">3 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>United Nations Expert Arrested in Tunisia for Using an RTL-SDR</span>
+					<a href="#">(rtl-sdr.com)</a>
+					<div class="content__score">
+						<span>219 points by</span>
+						<a href="#">newman8r</a>
+						<a href="#">12 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">112 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Inheritance versus Composition</span>
+					<a href="#">(lwn.net)</a>
+					<div class="content__score">
+						<span>209 points by</span>
+						<a href="#">chmaynard</a>
+						<a href="#">13 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">109 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Banned from PayPal after 12 years of business</span>
+					<a href="#">(niteo.co)</a>
+					<div class="content__score">
+						<span>286 points by</span>
+						<a href="#">dz0ny</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">139 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Amazon S3 Path Deprecation Plan – The Rest of the Story</span>
+					<a href="#">(amazon.com)</a>
+					<div class="content__score">
+						<span>449 points by</span>
+						<a href="#">jeffbarr</a>
+						<a href="#">12 hours ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">105 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>For Better Computing, Liberate CPUs from Garbage Collection</span>
+					<a href="#">(ieee.org)</a>
+					<div class="content__score">
+						<span>269 points by</span>
+						<a href="#">mbroncano</a>
+						<a href="#">10 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">223 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Scanning the fintech landscape: disruptive models</span>
+					<a href="#">(mckinsey.com)</a>
+					<div class="content__score">
+						<span>1 points by</span>
+						<a href="#">zt</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">discuss</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Tech Companies Are Deleting Evidence of War Crimes</span>
+					<a href="#">(theatlantic.com)</a>
+					<div class="content__score">
+						<span>415 points by</span>
+						<a href="#">anfilt</a>
+						<a href="#">9 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">126 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>ESA Space CyberSecurity Call for Ideas</span>
+					<a href="#">(esa.int)</a>
+					<div class="content__score">
+						<span>12 points by</span>
+						<a href="#">crowcat</a>
+						<a href="#">1 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">2 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Internet Explorer Browser Collection</span>
+					<a href="#">(my-internet-explorer.com)</a>
+					<div class="content__score">
+						<span>56 points by</span>
+						<a href="#">Gwxz</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">23 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Urban trees 'live fast, die young' compared to those in rural forests</span>
+					<a href="#">(phys.org)</a>
+					<div class="content__score">
+						<span>11 points by</span>
+						<a href="#">dnetesn</a>
+						<a href="#">2 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">3 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>United Nations Expert Arrested in Tunisia for Using an RTL-SDR</span>
+					<a href="#">(rtl-sdr.com)</a>
+					<div class="content__score">
+						<span>219 points by</span>
+						<a href="#">newman8r</a>
+						<a href="#">12 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">112 comments</a>
+					</div>
+				</li>
+				<li class="icon">
+					<span>Inheritance versus Composition</span>
+					<a href="#">(lwn.net)</a>
+					<div class="content__score">
+						<span>209 points by</span>
+						<a href="#">chmaynard</a>
+						<a href="#">13 hour ago</a>
+						<span>|</span>
+						<a href="#">hide</a>
+						<span>|</span>
+						<a href="#">109 comments</a>
+					</div>
+				</li>
+			</ol>
+			<div class="content__More"><a href="#">More</a></div>
+		</div>
+		<div class="footer">
+			<ul class="footer__content">
+				<li class="footer__menu"><a href="#">Guidelines</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">FAQ</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Support</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">API</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Security</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Lists</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Bookmarklet</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Legal</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Apply to YC</a></li>
+				<li class="footer__menu">|</li>
+				<li class="footer__menu"><a href="#">Contact</a></li>
+			</ul>
+			<form class="footer__search">
+				<span class="footar__title">Search:</span>
+				<input type="text" class="search">
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
