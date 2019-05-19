@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body {
+
+			margin:0;
+			background: #EDE7F6;
+		}
+		.banner {
+			position: absolute;
+			background: url('https://source.unsplash.com/pUAM5hPaCRI') no-repeat  center;
+			height: 250px;
+			width: 100%;
+			background-size: cover;
+		}
+		.wapper {
+			background: white;
+			max-width: 640px;
+			position: relative;
+			left:50%;
+			transform: translate(-50%,10%);
+			padding: 50px;
+		/*	background: pink;*/
+			border-top: #C2B96E solid 15px;
+
+		}
+		.content__title {
+			font-size: 40px;
+			padding: 0px 20px;
+		}
+		.content__msg {
+			padding: 20px 20px;
+
+		}
+		.contnet__msg--txt {
+			padding: 6px;
+		}
+		.content__need {
+			color: red;
+			margin-bottom: 30px;
+			padding: 0px 20px;
+		}
+		.content__mail {
+			
+			padding: 20px 20px;
+			margin: 1px 0;
+
+		}
+		.content__mail--title {
+			font-size: 24px;
+			padding-bottom: 5px;
+		}
+			.content__mail_needInput {
+			padding-top: 20px;
+			color: red;
+			opacity: 0;
+		}
+
+		input[type='text'] {
+			font-size: 24px;
+			border:gray 1px; 
+			border-bottom-style: solid;
+			margin-top: 20px;
+			width: 60%;
+
+		}
+		input[type='email'] {
+			font-size: 24px;
+			border:gray 1px; 
+			border-bottom-style: solid;
+			margin-top: 20px;
+			width: 60%;
+		}
+
+		.content__name {
+			padding: 20px 20px;	
+			margin: 1px 0;
+		}
+		.content__name--title {
+			font-size: 24px;
+			padding-bottom: 5px;
+		}
+		.content__name_needInput {
+			padding-top: 20px;
+			color: red;
+			opacity: 0;
+		}
+		.content__apply {
+			padding: 20px 20px;
+			
+			margin: 1px 0;
+		}
+		.content__apply--title {
+			font-size: 24px;
+			padding-bottom: 5px;
+		}
+		.content__apply--ipnut {
+			padding: 10px 0;
+			font-size: 18px;
+		}
+		.content__apply_needInput {
+			padding-top: 20px;
+			color: red;
+			opacity: 0;
+		}
+		.content__havebg {
+			padding: 20px 20px;
+			
+			margin: 1px 0;
+		}
+		.content__havebg--title {
+			font-size: 24px;
+			padding-bottom: 5px;
+		}
+		.content__havebg_needInput {
+			padding-top: 20px;
+			color: red;
+			opacity: 0;			
+		}
+
+		.content__other {
+			padding: 20px 20px;
+			
+		}
+		.content__other--title {
+			font-size: 24px;
+			padding-bottom: 5px;
+		}
+		.content__output {
+			padding: 20px 20px;
+			
+			margin: 1px 0;
+		}
+		input[type='button'] {
+			color: white;
+			font-size: 16px;
+			padding: 20px 50px;
+			background: #155DED;
+			border-radius: 10px;
+		}
+		.bgpink {
+			background: pink;
+		}
+		.opacity1 {
+			opacity: 1;
+		}
+
+	</style>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<div class='banner'></div>
+	<div class='wapper'>
+		<form class='content' name='form' id='form'>
+			<div class='content__title'>程式導師實驗計畫第三期報名表單</div>
+			<div class='content__msg'>
+				<div class='contnet__msg--txt'>詳情請參考：<a href="https://medium.com/@hulitw/mentor-program-b5f96ae1eed1">https://medium.com/@hulitw/mentor-program-b5f96ae1eed1</a></div>
+				<div class='contnet__msg--txt'>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</div>				
+			</div>			
+			<div class='content__need'>*必填</div>
+			<div class='content__mail'>
+				<div class='content__mail--title'>電子郵件地址 *</div>
+				<input type="text" name='email' placeholder='Your email'>
+				<div class='content__mail_needInput'>這是必填問題</div>
+			</div>
+			<div class='content__name'>
+				<div class='content__name--title'>暱稱 * </div>
+				<div>該怎麼稱呼你</div>
+				<input type="text" name='name'>
+				<div class='content__name_needInput'>這是必填問題</div>
+			</div>
+			<div class='content__apply'>
+				<div class='content__apply--title'>報名類型</div>
+				<div class='content__apply--ipnut'>
+					<label>
+						<input type="radio" name="apply" value='工程師培養班'>				
+					工程師培養班（每週付出四十小時，從零培養到工程師，學費是一個月薪水） 
+					</label>
+				</div>
+				<div class='content__apply--ipnut'>
+					<label>
+						<input type="radio" name="apply" value='業餘班'>				
+					業餘班（依照個人目標訂立學習計畫，學費一萬五千元）
+					</label>
+				</div>
+				<div class='content__apply_needInput'>這是必填問題</div>
+			</div>
+			<div class='content__havebg'>
+				<div class='content__havebg--title'>是否有程式相關背景</div>
+				<div>範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</div>
+				<input type="text" name='havebg'>
+				<div class='content__havebg_needInput'>這是必填問題</div>
+			</div>
+			<div class='content__other'>
+				<div class='content__other--title'>其他</div>
+				<div>其他任何你想講的</div>
+				<input type="text" name='other' >
+			</div>
+			<div class='content__output'>
+				<div class='content__output--btn'><input type="button" value="提交" name='submit' onclick='processFormData();'></div>
+			</div>
+		</form>
+	</div>
+
+	<script>
+		function processFormData() {			
+			const form = document.forms.form;
+			const email = form.elements.email.value;
+			const name = form.elements.name.value;
+			const apply = form.elements.apply.value;
+			const havebg = form.elements.havebg.value;
+			const other = form.elements.other.value;
+			if (email === '') {
+				document.querySelector('.content__mail').classList.add('bgpink');
+				document.querySelector('.content__mail_needInput').classList.add('opacity1');
+			} else if (name ==='') {
+				document.querySelector('.content__name').classList.add('bgpink');
+				document.querySelector('.content__name_needInput').classList.add('opacity1');
+			} else if (apply ==='') {
+				document.querySelector('.content__apply').classList.add('bgpink');
+				document.querySelector('.content__apply_needInput').classList.add('opacity1');
+			} else if (havebg ==='') {
+				document.querySelector('.content__havebg').classList.add('bgpink');
+				document.querySelector('.content__havebg_needInput').classList.add('opacity1');	
+			} else {
+				console.log(email)
+				console.log(name)
+				console.log(apply)
+				console.log(havebg)
+				console.log(other)
+				alert('表單已成功送出!')
+			}
+		}
+	</script>
+</body>
+</html>
