@@ -64,7 +64,7 @@
 			border-bottom-style: solid;
 			margin-top: 20px;
 			width: 60%;
-
+			
 		}
 		input[type='email'] {
 			font-size: 24px;
@@ -207,26 +207,54 @@
 	</div>
 
 	<script>
-		function processFormData() {			
+		
+
+		function processFormData() {
+			let SendOk = 1;
 			const form = document.forms.form;
 			const email = form.elements.email.value;
 			const name = form.elements.name.value;
 			const apply = form.elements.apply.value;
 			const havebg = form.elements.havebg.value;
 			const other = form.elements.other.value;
+
 			if (email === '') {
 				document.querySelector('.content__mail').classList.add('bgpink');
 				document.querySelector('.content__mail_needInput').classList.add('opacity1');
-			} else if (name ==='') {
+				SendOk = 0;				
+			} else {
+				document.querySelector('.content__mail').classList.remove('bgpink');
+				document.querySelector('.content__mail_needInput').classList.remove('opacity1');
+			}
+
+			if (name ==='') {
 				document.querySelector('.content__name').classList.add('bgpink');
 				document.querySelector('.content__name_needInput').classList.add('opacity1');
-			} else if (apply ==='') {
+				SendOk = 0;	
+			} else {
+				document.querySelector('.content__name').classList.remove('bgpink');
+				document.querySelector('.content__name_needInput').classList.remove('opacity1');			
+			}
+
+			if (apply ==='') {
 				document.querySelector('.content__apply').classList.add('bgpink');
 				document.querySelector('.content__apply_needInput').classList.add('opacity1');
-			} else if (havebg ==='') {
+				SendOk = 0;	
+			} else {
+				document.querySelector('.content__apply').classList.remove('bgpink');
+				document.querySelector('.content__apply_needInput').classList.remove('opacity1');			
+			}
+
+			if (havebg ==='') {
 				document.querySelector('.content__havebg').classList.add('bgpink');
 				document.querySelector('.content__havebg_needInput').classList.add('opacity1');	
+				SendOk = 0;
 			} else {
+				document.querySelector('.content__havebg').classList.remove('bgpink');
+				document.querySelector('.content__havebg_needInput').classList.remove('opacity1');
+			}
+			
+			if (SendOk === 1) {
 				console.log(email)
 				console.log(name)
 				console.log(apply)
