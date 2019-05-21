@@ -24,51 +24,25 @@
 			font-size: 70px;
 			line-height: 50px;
 		}
-		.allRow {
-			margin-left: 4px;
-		}
-		.ac {
-			display: inline-block;
-			padding: 10px 33px;
-			margin:5px;
-			border: solid gray 1px			
-		}
-		.norml_bthStyle {
-			display: inline-block;
-			padding: 10px 39px;
-			margin:5px;
-			border: solid gray 1px
-		}
-		.num__bthStyle {
-			display: inline-block;
-			border: solid gray 1px;
-			padding: 10px 40px;
-			margin:5px;
+		.row1 , .row2, .row3, .row4, .row5 {
+			display: flex;
+			justify-content: space-between;
+			margin:0 10px;
 		}
 
-		.div {
-			position: absolute;
-			right: 5px;
-		}
-		.minus {
-			padding: 10px 39.5px;
+		.num__bthStyle {		
+			width: 23%;
+			height: 37px;
+			text-align: center;
+			border: solid gray 1px;
+			margin:5px 0px;
+			line-height: 35px;
 		}
 		.equal {
-			padding: 10px 91px;
+			width: 49%
 		}
-		.dec {
-			padding: 10px 42px;
-		}
-		.FaDaCai {
-			display: inline-block;
-			color:red;
-			font-weight: bold;
-			font-size: 24px;
-			position: absolute;
-			left: 50%;
-			top: 30%;
-			transform:translate(-50%,-50%);
-		}
+
+
 
 	</style>
 </head>
@@ -77,32 +51,31 @@
 		<div class='output'>0</div>
 		<div class='allRow'>
 			<div class='row1'>
-				<div class='ac'>AC</div>
-				<div class='FaDaCai'>發大財</div>
-				<div class='div norml_bthStyle' equations-value='div'>&divide;</div>
+				<div class='ac num__bthStyle'>AC</div>
+				<div class='divide num__bthStyle' equations-value='div'>&divide;</div>
 			</div>
 			<div class='row2'>
 				<div class='num__bthStyle' data-value='7'>7</div>
 				<div class='num__bthStyle' data-value='8'>8</div>
 				<div class='num__bthStyle' data-value='9'>9</div>
-				<div class='times norml_bthStyle' equations-value='times'>&times;</div>
+				<div class='times num__bthStyle' equations-value='times'>&times;</div>
 			</div>
 			<div class='row3'>
 				<div class='num__bthStyle' data-value='4'>4</div>
 				<div class='num__bthStyle' data-value='5'>5</div>
 				<div class='num__bthStyle' data-value='6'>6</div>
-				<div class='minus norml_bthStyle' equations-value='minus'>–</div>
+				<div class='minus num__bthStyle' equations-value='minus'>-</div>
 			</div>
 			<div class='row4'>
 				<div class='num__bthStyle' data-value='1'>1</div>
 				<div class='num__bthStyle' data-value='2'>2</div>
 				<div class='num__bthStyle' data-value='3'>3</div>
-				<div class='plus norml_bthStyle' equations-value='plus'>+</div>
+				<div class='plus num__bthStyle' equations-value='plus'>+</div>
 			</div>
 			<div class='row5'>
 				<div class='num__0 num__bthStyle'>0</div>		
-				<div class='dec norml_bthStyle'>.</div>
-				<div class='equal norml_bthStyle'>=</div>
+				<div class='dec num__bthStyle'>.</div>
+				<div class='equal num__bthStyle'>=</div>
 			</div>
 		</div>
 	</div>
