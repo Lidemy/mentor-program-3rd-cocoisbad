@@ -210,7 +210,7 @@
 		
 
 		function processFormData() {
-			let SendOk = 1;
+			let sendOk = 1;
 			const form = document.forms.form;
 			const email = form.elements.email.value;
 			const name = form.elements.name.value;
@@ -221,7 +221,7 @@
 			if (email === '') {
 				document.querySelector('.content__mail').classList.add('bgpink');
 				document.querySelector('.content__mail_needInput').classList.add('opacity1');
-				SendOk = 0;				
+				sendOk = 0;				
 			} else {
 				document.querySelector('.content__mail').classList.remove('bgpink');
 				document.querySelector('.content__mail_needInput').classList.remove('opacity1');
@@ -230,7 +230,7 @@
 			if (name ==='') {
 				document.querySelector('.content__name').classList.add('bgpink');
 				document.querySelector('.content__name_needInput').classList.add('opacity1');
-				SendOk = 0;	
+				sendOk = 0;	
 			} else {
 				document.querySelector('.content__name').classList.remove('bgpink');
 				document.querySelector('.content__name_needInput').classList.remove('opacity1');			
@@ -239,7 +239,7 @@
 			if (apply ==='') {
 				document.querySelector('.content__apply').classList.add('bgpink');
 				document.querySelector('.content__apply_needInput').classList.add('opacity1');
-				SendOk = 0;	
+				sendOk = 0;	
 			} else {
 				document.querySelector('.content__apply').classList.remove('bgpink');
 				document.querySelector('.content__apply_needInput').classList.remove('opacity1');			
@@ -248,13 +248,13 @@
 			if (havebg ==='') {
 				document.querySelector('.content__havebg').classList.add('bgpink');
 				document.querySelector('.content__havebg_needInput').classList.add('opacity1');	
-				SendOk = 0;
+				sendOk = 0;
 			} else {
 				document.querySelector('.content__havebg').classList.remove('bgpink');
 				document.querySelector('.content__havebg_needInput').classList.remove('opacity1');
 			}
 			
-			if (SendOk === 1) {
+			if (sendOk === 1) {
 				console.log(email)
 				console.log(name)
 				console.log(apply)
