@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		.content {
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			text-align: center;
+			font-size: 30px;
+			
+		}
+		.content__in {
+			padding-bottom: 15px;
+		}
+
+		.content__img {
+
+		}
+		.firstStyle {
+			background: #A2FFFC;
+		}
+		.noneStyle {
+			color: white;
+			background: black;
+		}
+		img {
+			max-width: 60%;
+			max-height: 60%;
+		}
+	</style>
+</head>
+<body>
+	<div class='content'>
+		<div class='content__in'></div>
+		<div class='content__img'></div>
+	</div>
+	<script>
+		const request = new XMLHttpRequest()
+
+		request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+				const response = request.responseText;
+				const json = JSON.parse(response)
+				if (json.prize === 'FIRST') {
+					document.querySelector('.content__in').innerText = '恭喜你中頭獎了！日本東京來回雙人遊！'
+					document.querySelector('body').classList.add('.firstStyle');
+					const winImg = document.createElement('img');
+					winImg.src = 'https://i.imgur.com/t0ooBrA.jpg';
+					document.querySelector('.content__img').appendChild(winImg);
+				} else if (json.prize === 'SECOND') {
+					document.querySelector('.content__in').innerText = '二獎！90 吋電視一台！'
+					const winImg = document.createElement('img');
+					winImg.src = 'https://i.imgur.com/A9ppCot.jpg';
+					document.querySelector('.content__img').appendChild(winImg);					
+				} else if (json.prize === 'THIRD') {
+					document.querySelector('.content__in').innerText = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
+					const winImg = document.createElement('img');
+					winImg.src = 'https://i.imgur.com/PamASlP.png';
+					document.querySelector('.content__img').appendChild(winImg);
+				} else if (json.prize === 'NONE') {
+					document.querySelector('.content__in').innerText = '銘謝惠顧'
+					document.querySelector('body').classList.add('.noneStyle');
+				} else {
+				alert('系統不穩定，請在試一次')
+				}
+			}
+		}
+		request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true)
+		request.send()
+	</script>
+</body>
+</html>

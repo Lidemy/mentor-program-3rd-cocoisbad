@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.content {
+			position: absolute;
+			top:10%;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			width: 70%;
+			margin-bottom: 50px;
+
+		}
+		.message {
+			display: flex;
+			flex-direction: column-reverse;
+
+		}
+		.message>* {
+			border: 1px solid gray;
+			padding: 10px 0;
+
+		}
+		input[type='text'] {
+			width: 90%;
+			padding: 20px 0px;
+			margin:10px 0;
+			font-size: 18px;
+			border: 1px solid gray;
+		}
+		.text__btn {
+			display: inline-block;
+			width: 9%;
+			padding: 20px 0px;
+			
+		}
+		input[type='button'] {
+			width: 100%;
+			padding: 20px 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class='content'>
+		<form class='inputMsgbox' name='form' id='form'>
+			<input type="text" name="inputMsg">
+			<div class='text__btn'>
+				<input type="button" value="提交" name='submit' onclick='processFormData();'>
+			</div>
+		</form>
+		<div class='message'>
+	
+		</div>
+	</div>
+	<script>
+		let jsonLength = 0;
+		let loop = 0;
+		const request = new XMLHttpRequest()
+		request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+				const response = request.responseText;
+				const json = JSON.parse(response)
+				jsonLength = json.length
+				if (jsonLength <= 20) {
+					for (let i = 0; i < json.length ; i += 1) {
+						const msgDiv = document.createElement('div')
+						msgDiv.innerText = json[i].content
+						loop += 1
+						msgDiv.classList.add('a' + loop)
+						document.querySelector('.message').appendChild(msgDiv)
+					}
+				} else {
+					for (let i = json.length - 20; i < json.length; i += 1) {						
+						const msgDiv = document.createElement('div')
+						msgDiv.innerText = json[i].content
+						loop += 1
+						msgDiv.classList.add('a' + loop)
+						document.querySelector('.message').appendChild(msgDiv)
+					}
+					jsonLength = 20;
+				}
+				
+			}
+		}
+	function processFormData() {
+		const form = document.forms.form;
+		const inputMsg = form.elements.inputMsg.value;
+		const requestPost = new XMLHttpRequest()
+		requestPost.open('POST','https://lidemy-book-store.herokuapp.com/posts', true)
+		requestPost.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+		requestPost.send(JSON.stringify({"content": inputMsg}))
+		const msgDiv = document.createElement('div')
+		jsonLength += 1
+		msgDiv.innerText = inputMsg
+		msgDiv.classList.add('a' + jsonLength)
+		document.querySelector('.message').appendChild(msgDiv)
+		if (jsonLength > 20) {
+			const d = document.querySelector('.message');
+			const d_nested = document.querySelector('.a' + (jsonLength - 20));
+			const throwawayNode = d.removeChild(d_nested);
+		}
+	}
+		
+		request.open('GET','https://lidemy-book-store.herokuapp.com/posts', true)
+		request.send()
+	</script>
+</body>
+</html>
