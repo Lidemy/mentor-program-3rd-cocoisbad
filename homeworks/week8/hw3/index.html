@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			margin:0;
+		}
+
+		.content {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin:20% 0;
+			
+		}
+
+
+		.content__video {
+			width: 25%;
+			margin: 10px 20px;
+			
+
+		}
+
+		img {
+			width: 100%;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+		<div class='content'>									
+		</div>
+	</div>
+
+	<div id='clips-display'></div>
+	<script>
+		const request = new XMLHttpRequest()
+		request.onload = function() {
+			const clipsDisplay = document.getElementById('clips-display')
+			const response = request.responseText
+			const json = JSON.parse(response)
+			
+			for(let i = 0; i < 20; i += 1) {
+				const topPicDiv = document.createElement('div')
+				const topPicImg = document.createElement('img')
+				topPicDiv.classList.add('content__video')
+				topPicImg.src = json.streams[i].preview.large
+				document.querySelector('.content').appendChild(topPicDiv)
+				topPicDiv.appendChild(topPicImg)
+			}
+			
+		}
+		request.open('GET','https://api.twitch.tv/kraken/streams/?game=League%20of%20Legends', true)
+    	request.setRequestHeader('Client-ID', 'cht4rbpb659n4ystrmk3k6dwy08h66')
+    	request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+    	request.send()
+    
+	</script>
+</body>
+</html>
