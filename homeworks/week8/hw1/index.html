@@ -47,28 +47,27 @@
 			if (request.status >= 200 && request.status < 400) {
 				const response = request.responseText;
 				const json = JSON.parse(response)
+				
+				let pri ='';
+				const winImg = document.createElement('img');
 				if (json.prize === 'FIRST') {
-					document.querySelector('.content__in').innerText = '恭喜你中頭獎了！日本東京來回雙人遊！'
-					document.querySelector('body').classList.add('.firstStyle');
-					const winImg = document.createElement('img');
+					pri = '恭喜你中頭獎了！日本東京來回雙人遊！'
+					document.querySelector('body').classList.add('firstStyle');
 					winImg.src = 'https://i.imgur.com/t0ooBrA.jpg';
-					document.querySelector('.content__img').appendChild(winImg);
 				} else if (json.prize === 'SECOND') {
-					document.querySelector('.content__in').innerText = '二獎！90 吋電視一台！'
-					const winImg = document.createElement('img');
-					winImg.src = 'https://i.imgur.com/A9ppCot.jpg';
-					document.querySelector('.content__img').appendChild(winImg);					
+					pri = '二獎！90 吋電視一台！'
+					winImg.src = 'https://i.imgur.com/A9ppCot.jpg';				
 				} else if (json.prize === 'THIRD') {
-					document.querySelector('.content__in').innerText = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
-					const winImg = document.createElement('img');
+					pri = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
 					winImg.src = 'https://i.imgur.com/PamASlP.png';
-					document.querySelector('.content__img').appendChild(winImg);
 				} else if (json.prize === 'NONE') {
-					document.querySelector('.content__in').innerText = '銘謝惠顧'
-					document.querySelector('body').classList.add('.noneStyle');
+					pri = '銘謝惠顧'
+					document.querySelector('body').classList.add('noneStyle');
 				} else {
 				alert('系統不穩定，請在試一次')
 				}
+				document.querySelector('.content__img').appendChild(winImg);
+				document.querySelector('.content__in').innerText = pri;
 			}
 		}
 		request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true)
