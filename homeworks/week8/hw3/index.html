@@ -4,33 +4,73 @@
 	<style>
 		body {
 			margin:0;
+			background: url(https://i.imgur.com/Rx8g5Ra.jpg);
+		}
+		
+		.banner {
+			color:white;
+			text-align: center;
+			margin-top: 30px;
+			font-size: 50px;
+		}
+
+		.contant__display {
+			width: 1300px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-45%,-20%);
+			margin:100px 0px;	
 		}
 
 		.content {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			margin:20% 0;
-			
+			display:inline-block;
+			background: white;
+			width: 30%;
 		}
 
-
 		.content__video {
-			width: 25%;
+			width: 30%;
 			margin: 10px 20px;
-			
+		}
 
+		.content__logo {
+			display: inline-block;
+			margin-left: 20px;
+			width: 5%;
+
+		}
+		.content__allText {
+			display: inline-block;
+			margin-left: 20%;
+		}
+
+		.content__status {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 200px;
+			padding-bottom: 10px;
+			font-size: 18px;
+		}
+
+		.content__name {
+			font-size: 20px;
+			margin-bottom: 20px;
 		}
 
 		img {
-			width: 100%;
+			width: 300%;
 			display: block;
 		}
+
 	</style>
 </head>
 <body>
 	<div class='wrapper'>
-		<div class='content'>									
+		<div class='banner'>LOL 熱門實況</div>
+		<div class='contant__display'>
+			
 		</div>
 	</div>
 
@@ -41,14 +81,39 @@
 			const clipsDisplay = document.getElementById('clips-display')
 			const response = request.responseText
 			const json = JSON.parse(response)
-			
+			console.log(json.streams[0])
 			for(let i = 0; i < 20; i += 1) {
+				const topPicDivContent = document.createElement('div')
 				const topPicDiv = document.createElement('div')
 				const topPicImg = document.createElement('img')
 				topPicDiv.classList.add('content__video')
 				topPicImg.src = json.streams[i].preview.large
-				document.querySelector('.content').appendChild(topPicDiv)
 				topPicDiv.appendChild(topPicImg)
+				topPicDivContent.appendChild(topPicDiv)
+				topPicDivContent.classList.add('content','num' + i)
+				document.querySelector('.contant__display').appendChild(topPicDivContent)
+
+				const logoPicDiv = document.createElement('div')
+				const logoPicImg = document.createElement('img')
+				logoPicDiv.classList.add('content__logo')
+				logoPicImg.src = json.streams[i].channel.logo
+				document.querySelector('.num' + i).appendChild(logoPicDiv)
+				logoPicDiv.appendChild(logoPicImg)
+
+				const statusPicDiv = document.createElement('div')
+				statusPicDiv.classList.add('content__status')
+				statusPicDiv.innerText = json.streams[i].channel.status
+
+				const namePicDiv = document.createElement('div')
+				namePicDiv.classList.add('content__name')
+				namePicDiv.innerText = json.streams[i].channel.name
+
+				const allTextPicDiv = document.createElement('div')
+				allTextPicDiv.classList.add('content__allText')
+				allTextPicDiv.appendChild(statusPicDiv)
+				allTextPicDiv.appendChild(namePicDiv)
+				document.querySelector('.num' + i).appendChild(allTextPicDiv)
+			
 			}
 			
 		}

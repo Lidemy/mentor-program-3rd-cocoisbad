@@ -66,25 +66,14 @@
 				const response = request.responseText;
 				const json = JSON.parse(response)
 				jsonLength = json.length
-				if (jsonLength <= 20) {
-					for (let i = 0; i < json.length ; i += 1) {
+				for (let i = json.length - 1; i >= 0 ; i -= 1) {
 						const msgDiv = document.createElement('div')
 						msgDiv.innerText = json[i].content
 						loop += 1
 						msgDiv.classList.add('a' + loop)
 						document.querySelector('.message').appendChild(msgDiv)
 					}
-				} else {
-					for (let i = json.length - 20; i < json.length; i += 1) {						
-						const msgDiv = document.createElement('div')
-						msgDiv.innerText = json[i].content
-						loop += 1
-						msgDiv.classList.add('a' + loop)
-						document.querySelector('.message').appendChild(msgDiv)
-					}
-					jsonLength = 20;
-				}
-				
+			//	jsonLength = 20;
 			}
 		}
 	function processFormData() {
@@ -106,7 +95,7 @@
 		}
 	}
 		
-		request.open('GET','https://lidemy-book-store.herokuapp.com/posts', true)
+		request.open('GET','https://lidemy-book-store.herokuapp.com/posts?_sort=id&_order=desc&_limit=20', true)
 		request.send()
 	</script>
 </body>
