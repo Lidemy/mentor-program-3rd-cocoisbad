@@ -1,0 +1,82 @@
+body {
+	margin: 0;
+	background: #F5F5F5;
+	font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+}
+.warning {
+	color:red;
+	text-align: center;
+}
+.container {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.title {
+	text-align: center;	
+	color: #363636;
+}
+
+input[type='submit'] {
+	margin-left: 700px;
+	width: 100px;
+	height: 40px;
+	margin-top: 3px;
+}
+
+input[type='text'] {
+	display: inline-block;
+	width: 150px;
+
+}
+
+textarea {
+	height: 100px;
+	width: 800px;
+}
+
+.message {
+	border: solid #C4C4C4 1px;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.message__name {
+	display: inline-block;
+	color: blue;
+}
+
+.message__datetime {
+	display: inline-block;
+	color: #6C6C6C;
+	margin-left: 5px;
+	font-size: 10px;
+
+}
+.message__content {
+	color: #363636;
+}
+
+.login {
+	text-align: right;
+}
+.logout {
+	text-align: right;
+}
+.register {
+	text-align: right;
+}
+
+.registerText {
+	text-align: center;
+	margin-top:10px;
+}
+
+
+.registerSubmit {
+
+	margin-left: -350px;
+	width: 100px;
+	height: 40px;
+	margin-top: 20px;
+}
