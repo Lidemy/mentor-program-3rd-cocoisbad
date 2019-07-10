@@ -8,9 +8,10 @@
     die("請確認內容");
   }
   
-
-  $sql = "SELECT * from cocoisbad_users WHERE username = '" .  $registerName . "'";
-  $result = $conn->query($sql);
+  $stmt = $conn->prepare("SELECT * FROM cocoisbad_users WHERE username=?");
+  $stmt->bind_param("s", $registerName);
+  $stmt->execute();
+  $result = $stmt->get_result();
   $row = $result->fetch_assoc();
   $hash = $row['password'];
   if (password_verify($registerPassword, $hash)) {

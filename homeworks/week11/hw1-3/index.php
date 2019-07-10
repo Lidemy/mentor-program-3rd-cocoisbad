@@ -40,7 +40,8 @@
 		  		echo "<div class='message'>";
 		  		echo "<div class='message__name'>" . $row['nickname'] . "</div>";
 		  		echo "<div class='message__datetime'>" . $row['created_at'] . "</div>";
-		  		echo "<div class='message__content'>" . $row['content'] . "</div>";
+		  		echo "<div class='message__content'>" . htmlspecialchars($row['content'], ENT_QUOTES, 'utf-8') . "</div>";
+		  		echo "<div class='message__reply'><a href='./reply.php?id=" . $row['id'] . "'>回復</a></div>";
 		  		echo "<div class='message__delete'><a href='./delete.php?id=" . $row['id'] . "'>刪除</a></div>";
 		  		echo "<div class='message__update'><a href='./update.php?id=" . $row['id'] . "'>編輯</a></div>";	
 		  		echo "</div>";

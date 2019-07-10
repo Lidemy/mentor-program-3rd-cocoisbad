@@ -1,10 +1,12 @@
 <?php 
   require_once('./conn.php'); 
   $id = $_GET['id'];
-  $sql = "SELECT * FROM cocoisbad_comments WHERE id =" . $id;
-  $result = $conn->query($sql);
-  $row = $result->fetch_assoc();
 
+  $stmt = $conn->prepare("SELECT * FROM cocoisbad_comments WHERE id =?");
+  $stmt->bind_param("s", $id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $row = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html>

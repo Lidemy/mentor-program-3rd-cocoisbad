@@ -17,11 +17,8 @@
 			<div class="registerText">密碼：<input type="text" name="registerPassword"></div>
 			<div class="registerText">暱稱：<input type="text" name="registerNickname"></div>
 			<div class="registerSubmit"><input type="submit" value="註冊"></div>
+			<div class="backSubmit"><a class="backSubmit__botton" href="./index.php?page=1">返回</a></div>
 		</form>
-		<form method="POST" action="./backIndex.php">
-			<div class="registerSubmit"><input type="submit" value="返回"></div>
-		</form>
-		
 	</div>
 </body>
 </html>
