@@ -28,7 +28,8 @@
 			$sql = 'SELECT cocoisbad_comments.content,
 			   	cocoisbad_comments.created_at,
 			   	cocoisbad_comments.id,
-			    cocoisbad_users.nickname 
+			    cocoisbad_users.nickname,
+			    cocoisbad_users_certificate.username
 		    FROM cocoisbad_users_certificate
 		    JOIN cocoisbad_comments ON cocoisbad_comments.user_id = cocoisbad_users_certificate.id
 		    JOIN cocoisbad_users ON cocoisbad_users.username = cocoisbad_users_certificate.username ORDER BY created_at  DESC LIMIT ' . $x . ',20';
@@ -37,18 +38,26 @@
 		  if($result->num_rows > 0) {
 		  	while($row = $result->fetch_assoc()) {
 		  		echo "<div class='message'>";
-		  		echo "<div class='message__name'>" . $row['nickname'] . "</div>";
-		  		echo "<div class='message__datetime'>" . $row['created_at'] . "</div>";
+		  		echo "<div class='message__name'>" . htmlspecialchars($row['nickname'], ENT_QUOTES, 'utf-8') . "</div>";
+		  		echo "<div class='message__datetime'>" . htmlspecialchars($row['created_at'], ENT_QUOTES, 'utf-8') . "</div>";
 		  		echo "<div class='message__content'>" . htmlspecialchars($row['content'], ENT_QUOTES, 'utf-8') . "</div>";
-		  		echo "<form method='POST' action='./handle_reply.php?id=" . $row['id'] . "'>";
+		  		echo "<form method='POST' action='./handle_reply.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'utf-8') . "'>";
 				echo "<div><textarea class='message__reply' name='reply'></textarea></div>";
 				echo "<div class='message__repay--submit'>";
 				echo "<input type='submit' value='回覆'>";
 			    echo "</div>";
 				echo "</form>";
-		  		echo "<div class='message__delete'><a href='./delete.php?id=" . $row['id'] . "'>刪除</a></div>";
-		  		echo "<div class='message__update'><a href='./update.php?id=" . $row['id'] . "'>編輯</a></div>";	
 
+				$stmt = $conn->prepare("SELECT * from cocoisbad_users_certificate WHERE id=?");
+		        $stmt->bind_param("s", $_COOKIE["member_id"]);
+		        $stmt->execute();
+		        $result2 = $stmt->get_result();
+		        $row2 = $result2->fetch_assoc();
+        
+	      		if($row2['username'] === $row['username']) {
+			  		echo "<div class='message__delete'><a href='./delete.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'utf-8') . "'>刪除</a></div>";
+			  		echo "<div class='message__update'><a href='./update.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'utf-8') . "'>編輯</a></div>";	
+			  	}
 
 				$stmt = $conn->prepare("SELECT * from cocoisbad_reply WHERE comments_id=?");
 				$stmt = $conn->prepare("SELECT 
@@ -71,8 +80,8 @@
 		  					echo "<div class='message__replyContent'>";
 		  				}
 		  				
-				  		echo "<div class='message__reply--nickname'>" . $reply_row['nickname'] . "</div>";
-				  		echo "<div class='message__reply--datetime'>" . $reply_row['reply_created_at'] . "</div>";
+				  		echo "<div class='message__reply--nickname'>" . htmlspecialchars($reply_row['nickname'], ENT_QUOTES, 'utf-8') . "</div>";
+				  		echo "<div class='message__reply--datetime'>" . htmlspecialchars($reply_row['reply_created_at'], ENT_QUOTES, 'utf-8') . "</div>";
 				  		echo "<div class='message__reply--content'>" . htmlspecialchars($reply_row['reply_content'], ENT_QUOTES, 'utf-8')  . "</div>";
 				  		echo "</div>";
 		  			}

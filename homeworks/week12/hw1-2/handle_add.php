@@ -8,11 +8,6 @@
     $stmt->bind_param("s", $_COOKIE["member_id"]);
     $stmt->execute();
     $result = $stmt->get_result();
-    /*
-    $sql = "SELECT * from cocoisbad_users_certificate WHERE id ='". $_COOKIE["member_id"]."'";
- 
-    $result = $conn->query($sql);
-    */
     if($row = $result->fetch_assoc()) {
       $user_id = $row['id'];
     } else {
