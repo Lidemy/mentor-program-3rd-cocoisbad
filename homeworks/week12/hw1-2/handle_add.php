@@ -9,7 +9,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
     if($row = $result->fetch_assoc()) {
-      $user_id = $row['id'];
+      $username = $row['username'];
     } else {
       echo ("系統不穩，請在試一次");
     }
@@ -18,7 +18,7 @@
     if(empty($comments)) {
       die("請輸入內容");
     }
-    $sql = "INSERT INTO cocoisbad_comments(user_id, content) VALUES('$user_id', '$comments')";
+    $sql = "INSERT INTO cocoisbad_comments(username, content) VALUES('$username', '$comments')";
     if ($conn->query($sql)) {
       header('Location: ./index.php?page=1');
     } else {

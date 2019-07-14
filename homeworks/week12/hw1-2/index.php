@@ -28,11 +28,10 @@
 			$sql = 'SELECT cocoisbad_comments.content,
 			   	cocoisbad_comments.created_at,
 			   	cocoisbad_comments.id,
-			    cocoisbad_users.nickname,
-			    cocoisbad_users_certificate.username
-		    FROM cocoisbad_users_certificate
-		    JOIN cocoisbad_comments ON cocoisbad_comments.user_id = cocoisbad_users_certificate.id
-		    JOIN cocoisbad_users ON cocoisbad_users.username = cocoisbad_users_certificate.username ORDER BY created_at  DESC LIMIT ' . $x . ',20';
+			   	cocoisbad_comments.username,
+			    cocoisbad_users.nickname
+		    FROM cocoisbad_comments
+		    JOIN cocoisbad_users ON cocoisbad_users.username = cocoisbad_comments.username ORDER BY created_at  DESC LIMIT ' . $x . ',20';
 
 		  $result = $conn->query($sql);
 		  if($result->num_rows > 0) {
