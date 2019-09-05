@@ -1,0 +1,26 @@
+.container {
+	margin-top: 20px;
+}
+
+.todo__down {
+	border:solid gray 1px;
+	padding: 10px;
+	border-radius: 50%;
+	background: white;
+}
+
+.todo__undone {
+	border:solid gray 1px;
+	padding: 10px;
+	border-radius: 50%;
+	background: #358E00;
+}
+
+.todo__content {
+	position: absolute;
+	margin-left: 30px;
+}
+
+.todo__final_switch+div>div>span{
+	display: none;
+}
