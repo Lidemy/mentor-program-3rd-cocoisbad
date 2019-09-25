@@ -1,0 +1,1 @@
+"use strict";function _classCallCheck(s,t){if(!(s instanceof t))throw new TypeError("Cannot call a class as a function")}var Dog=function s(t,a){_classCallCheck(this,s),this.height=t,this.width=a};
