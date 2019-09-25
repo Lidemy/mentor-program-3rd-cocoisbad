@@ -1,0 +1,103 @@
+<!DOCTYPE html>	
+<html>	
+<head>	
+	<title></title>	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	<link rel="stylesheet" type="text/css" href="style.css">	
+
+ 	<script>
+		$(document).ready(function(){
+		  let list = [];
+
+ 		  $('.add-todo').keydown(function(e) {	
+			if(e.key === 'Enter') {	
+				addTodo(e.target.value);	
+			}	
+		  });
+
+		  $('.todo-list').on('click', '.todo__delete', (e) => {
+		  	const $this = $(e.currentTarget).closest('li').find('p')[0].innerHTML;
+		    removeTodo($this);
+		  });
+
+		  $('.todo-list').on('click', '.todo__final_switch', (e) => { 
+	  	    const $this = $(e.currentTarget);
+			const currentContent = $this.parent().find('p')[0].innerHTML;
+			
+		     list.map((item) => {
+		      if (item.content === currentContent) {
+		        if ($this.hasClass('todo__undone')) {
+		          item.todoSwitch = 0;
+		        } else {
+		          item.todoSwitch = 1;
+		        }
+		      }
+		      return item;
+		    });
+		     render();
+		  });
+
+		//新增
+		function addTodo(todo) {
+		  const obj = {
+		  	content : todo,
+		  	todoSwitch : 0,
+		  };
+		  list.push(obj);
+		  render()
+		}
+
+		//刪除
+		function removeTodo(todo) {
+		  list = list.filter(item => item.content !== todo)
+		  render()
+		}
+
+		//render
+		function render(){
+		  $('.todo-list').empty()
+		  $('.todo-list').append(list.map(item => {
+		  	if(item.todoSwitch === 0) {
+		  	return	`
+			  	<li class="list-group-item d-flex justify-content-between align-items-center">	
+					<div class='todo__down todo__final_switch'></div>	
+					<div class='todo__content'><p>${item.content}</p><span></span></div>	
+					<div>	
+						<div class='btn btn-danger todo__delete'>刪除</div>	
+					</div>	
+				</li>`
+		  	} else {
+		  	return	`
+			  	<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-success">	
+					<div class='todo__undone todo__final_switch'></div>	
+					<div class='todo__content'><p>${item.content}</p><span>(已完成)</span></div>	
+					<div>	
+						<div class='btn btn-danger todo__delete'>刪除</div>	
+					</div>	
+				</li>`
+		  	}
+		  }))
+		}
+	});
+	</script>	
+</head>	
+<body>	
+	  <div class="container">	
+	  	<div class="row">	
+	  		<div class="col-md-6">	
+	  			<div class="input-group mb-3">	
+				  <div class="input-group-prepend">	
+				    <span class="input-group-text" id="basic-addon1">new todo</span>	
+				  </div>	
+				  <input type="text" class="form-control add-todo" placeholder="todo" aria-label="todo">	
+				</div>	
+			  	<ul class="list-group todo-list">	
+				</ul>	
+			</div>	
+		</div>	
+	  </div>	
+ </body>	
+</html> 
