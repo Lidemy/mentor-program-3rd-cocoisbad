@@ -14,22 +14,27 @@
 
  		  $('.add-todo').keydown(function(e) {	
 			if(e.key === 'Enter') {	
-				addTodo(e.target.value);	
+				addTodo(e.target.value);
 			}	
 		  });
 
 		  $('.todo-list').on('click', '.todo__delete', (e) => {
-		  	const $this = $(e.currentTarget).closest('li').find('p')[0].innerHTML;
-		    removeTodo($this);
+			  const $this = $(e.currentTarget).parent().parent();
+			  const index = $("ul li").index($this);
+			  removeTodo(index);	    
+			  const listLength = list.length - index;
+				for (let i = 0; i < listLength; i += 1) {
+				  list[index + i].id -= 1;
+				}
 		  });
 
-		  $('.todo-list').on('click', '.todo__final_switch', (e) => { 
-	  	    const $this = $(e.currentTarget);
-			const currentContent = $this.parent().find('p')[0].innerHTML;
-			
+		  $('.todo-list').on('click', '.todo__final_switch', (e) => {   	    
+	  	    const $this = $(e.currentTarget).parent();
+			const index = $("ul li").index($this);
+
 		     list.map((item) => {
-		      if (item.content === currentContent) {
-		        if ($this.hasClass('todo__undone')) {
+		      if (item.id === index) {
+		        if ($this.children().hasClass('todo__undone')) {
 		          item.todoSwitch = 0;
 		        } else {
 		          item.todoSwitch = 1;
@@ -45,6 +50,7 @@
 		  const obj = {
 		  	content : todo,
 		  	todoSwitch : 0,
+		  	id: list.length,
 		  };
 		  list.push(obj);
 		  render()
@@ -52,7 +58,8 @@
 
 		//刪除
 		function removeTodo(todo) {
-		  list = list.filter(item => item.content !== todo)
+		  list = list.filter(item => item.id !== todo)
+
 		  render()
 		}
 
